@@ -2,10 +2,9 @@
 
 if (inputLine != null)
 {
-int inputNumber = int.Parse(inputLine);
+    int inputNumber = int.Parse(inputLine);
 
-int lastDigit = inputNumber % 10;
+    int lastDigit = inputNumber % 10;
 
-
-Console.WriteLine(lastDigit);
+    Console.WriteLine(lastDigit);
 }
