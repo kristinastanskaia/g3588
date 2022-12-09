@@ -1,4 +1,7 @@
-﻿// //ВАРИАНТ 1
+﻿//Напишите программу, которая выводит третью цифру заданного числа или сообщает,
+//что третьей цифры нет.
+
+// //ВАРИАНТ 1
 
 // int number = int.Parse(Console.ReadLine() ?? "0");
 // if (number > 99)
@@ -48,22 +51,60 @@
 //     Console.WriteLine("Третьей цифры нет!");
 // }
 
-//ВАРИАНТ 3
+// //ВАРИАНТ 3
 
-int num = int.Parse(Console.ReadLine() ?? "0"); 
+// int num = int.Parse(Console.ReadLine() ?? "0"); 
 
-if (num > 99)                       
+// if (num > 99)                       
+// {
+//     if (num > 999)                   
+//     {
+//         while (num > 999)         
+//         {
+//             num = num / 10;
+//         }
+//     }
+//     Console.WriteLine("Третья цифра " + num % 10);
+// }
+// else         
+// {
+//     Console.WriteLine("Третьей цифры нет!");
+// }
+
+// //Вариант 4
+
+// int num = int.Parse(Console.ReadLine() ?? "0");
+// if (num > 99)
+// {
+//     int lenght = (int)Math.Log10(num) + 1;
+//     int index = 3;
+
+//     while (lenght > index)
+//     {
+//         num = num / 10;
+//         lenght = lenght - 1;
+//     }
+//     Console.WriteLine("Третья цифра " + num % 10);
+// }
+// else
+// {
+//     Console.WriteLine("Третьей цифры нет!");
+// }
+
+//Вариант 5
+
+int num = int.Parse(Console.ReadLine() ?? "0");
+int pozition = 3;  //Позиция третьего числа
+
+if (num > 99)
 {
-    if (num > 999)                   
-    {
-        while (num > 999)         
-        {
-            num = num / 10;
-        }
-    }
-    Console.WriteLine("Третья цифра " + num % 10);
+    int lenght = (int)Math.Log10(num) + 1;   //Находим кол-во цифр в числе
+    int index = lenght - pozition;     //Находим разность всей длины до третьей позиции 
+    num = num / Convert.ToInt32(Math.Pow(10, index));  //Отсекаем столько цифр с конца числа
+
+    Console.WriteLine("Третья цифра " + num % 10);  //Находим остаток от деления на 10
 }
-else         
+else
 {
     Console.WriteLine("Третьей цифры нет!");
 }
