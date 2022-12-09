@@ -1,4 +1,8 @@
-﻿string? num1Line = Console.ReadLine();  // Считываем данные с консоли
+﻿//Напишите программу, которая принимает на вход три числа и выдаёт
+//максимальное из этих чисел.
+
+
+string? num1Line = Console.ReadLine();  // Считываем данные с консоли
 string? num2Line = Console.ReadLine();
 string? num3Line = Console.ReadLine();
 

@@ -1,4 +1,7 @@
-﻿string? num1Line = Console.ReadLine();  // Считываем данные с консоли
+﻿//Напишите программу, которая на вход принимает два числа и выдаёт,
+//какое число большее, а какое меньшее.
+
+string? num1Line = Console.ReadLine();  // Считываем данные с консоли
 string? num2Line = Console.ReadLine();
 
 if (num1Line != null && num2Line != null)   // Проверяем, чтобы данные были не пустыми

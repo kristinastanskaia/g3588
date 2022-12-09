@@ -1,5 +1,7 @@
-﻿int firstNumber = int.Parse(Console.ReadLine()??"0");
+﻿//Напишите программу, которая принимает на вход число и проверяет, 
+//кратно ли оно одновременно 7 и 23.
 
+int firstNumber = int.Parse(Console.ReadLine()??"0");
 
 int result1 = firstNumber % 7;
 int result2 = firstNumber % 23;
