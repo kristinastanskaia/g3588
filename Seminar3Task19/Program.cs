@@ -5,7 +5,7 @@
 int num = ReadData("Введите пятизначное число: ");
 bool result = PalinTest(num);
 
-if (num > 9999 && num < 99999)
+if (num > 9999 && num < 100000)
 {
     PrintData(result);
 }
@@ -31,3 +31,6 @@ void PrintData(bool msg)
     if (result == true) Console.WriteLine("Число является палиндромом!");
     else Console.WriteLine("Число не является палиндромом");
 }
+
+
+
