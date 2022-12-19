@@ -8,30 +8,33 @@ int numMax = ReadData("Введите значение максимальног�
 int[] arr = GenArray(arrLen, numMin, numMax);
 PrintData("Сгенерированный массив ", arr);
 
-
+//Метод читает данные от пользователя
 int ReadData(string msg)
 {
     Console.Write(msg);
     return int.Parse(Console.ReadLine() ?? "0");
 }
 
+// Метод создает массив
 int[] GenArray(int num, int min, int max)
 {
     Random rnd = new Random();
     int[] arr = new int[num];
-    for (int i = 0; i < arr.Length; i++)
+    for (int i = 0; i < num; i++)
     {
         arr[i] = rnd.Next(min, max);
     }
     return arr;
 }
 
+//Метод выводит результат
 void PrintData(string res, int[] arr)
 {
     Console.Write(res);
     PrintArray(arr);
 }
 
+//Метод печатает массив
 void PrintArray(int[] arr)
 {
     Console.Write("[");
