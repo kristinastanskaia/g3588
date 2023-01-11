@@ -27,7 +27,7 @@ int[,,] Fill3DArr(int countRow, int countColumn, int list, int topBorder, int do
     {
         for (int j = 0; j < countColumn; j++)
         {
-            for (int l = 0; l < countColumn; l++)
+            for (int l = 0; l < list; l++)
             {
                 array3D[i, j, l] = rand.Next(topBorder, downBorder + 1);
             }
@@ -43,7 +43,7 @@ void Print3DArr(int[,,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            for (int l = 0; l < matrix.GetLength(1); l++)
+            for (int l = 0; l < matrix.GetLength(2); l++)
             {
                 Console.Write($" [ {matrix[i, j, l]} ] ({i} , {j} , {l})" + "        ".Substring(matrix[i, j, l].ToString().Length));
             }
