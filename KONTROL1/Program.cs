@@ -1,22 +1,14 @@
-﻿
+﻿string size = ReadData("Сколько строк вы хотите ввести?");
+int intSize = int.Parse(size);
+string[] arr = GenArray(intSize);
+PrintData("Исходный массив: ", arr);
+int symbols = 3;
+int count = ElementCount(arr, symbols);
+string[] arrNew = SearchOfElements(arr, count, symbols);
+PrintData("Новый массив: ", arrNew);
 
-int number = ReadData("Сколько строк вы хотите ввести?");
-string[] arr = GenArray(number);
-PrintData("Сгенерированный массив из введенных строк: ", arr);
-string[] arr1 = BuildArr(arr);
-Console.WriteLine();
-PrintData("Новый массив: ", arr1);
-
-
-//Метод, считывающий данные, введенные пользователем
-int ReadData(string msg)
-{
-    Console.WriteLine(msg);
-    return int.Parse(Console.ReadLine() ?? "0");
-}
-
-//Метод, считывающий данные, введенные пользователем
-string ReadData1(string msg)
+//Метод считывает данные, введенные пользователем
+string ReadData(string msg)
 {
     Console.WriteLine(msg);
     return (Console.ReadLine() ?? "0");
@@ -28,61 +20,55 @@ string[] GenArray(int num)
     string[] arr = new string[num];
     for (int i = 0; i < num; i++)
     {
-        arr[i] = ReadData1("Введите данные: ");
+        arr[i] = ReadData("Введите данные и нажмите Enter: ");
     }
     return arr;
 }
 
-// Метод выводит данные пользователю
-void PrintData(string res, string[] arr)
-{
-    Console.WriteLine(res);
-    PrintArray(arr);
-}
-
 // Метод печатает одномерный массив
-void PrintArray(string[] arr)
+void Print1DArr(string[] arr)
 {
     Console.Write("[");
     for (int i = 0; i < arr.Length - 1; i++)
     {
         Console.Write(arr[i] + ", ");
     }
-    Console.Write(arr[arr.Length - 1] + "]");
+    Console.WriteLine(arr[arr.Length - 1] + "]");
 }
 
-// Метод проверяет кол-во символов в каждой строчке массива (либо удаляет либо оставляет ее)
-string[] BuildArr(string[] arr)
+// Метод подсчитывает количество элементов, удовлетворяющих условию в заданном массиве
+int ElementCount(string[] arr, int s)
 {
-    string[] outArr = new string[arr.Length];
-
+    int count = 0;
     for (int i = 0; i < arr.Length; i++)
     {
-        if (arr[i].Length <= 3)
+        if (arr[i].Length <= s)
         {
-            outArr[i] = arr[i];
+            count++;
         }
     }
-    return outArr;
+    return count;
 }
 
+// Метод создает новый массив из заданного, перебирая и проверяя элементы на условие
+string[] SearchOfElements(string[] arr, int c, int s)
+{
+    string[] newArr = new string[c];
 
+    for (int i = 0, j = 0; i < arr.Length; i++)
+    {
+        if (arr[i].Length <= s)
+        {
+            newArr[j] = arr[i];
+            j++;
+        }
+    }
+    return newArr;
+}
 
-
-
-
-
-// // Метод 
-// string[] BuildArr(string[] arr)
-// {
-//     string[] outArr = new string[];
-
-//     for (int i = 0; i < arr.Length; i++)
-//     {
-//         outArr[i] = arr[i];
-//     }
-//     return outArr;
-// }
-
-
-
+// Метод выводит данные пользователю 
+void PrintData(string res, string[] arr)
+{
+    Console.Write(res);
+    Print1DArr(arr);
+}
